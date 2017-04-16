@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2c0dcb57-8601-476c-aab4-deb47490611a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     magazines.`MagazineId` AS magazines_MagazineId,
+     magazines.`Name` AS magazines_Name,
+     magazines.`NumofCopies` AS magazines_NumofCopies,
+     magazines.`SubscriptionType` AS magazines_SubscriptionType,
+     magazines.`IssueDate` AS magazines_IssueDate,
+     magazines.`Category` AS magazines_Category
+FROM
+     `magazines` magazines]]>
+	</queryString>
+	<field name="magazines_MagazineId" class="java.lang.String"/>
+	<field name="magazines_Name" class="java.lang.String"/>
+	<field name="magazines_NumofCopies" class="java.lang.Integer"/>
+	<field name="magazines_SubscriptionType" class="java.lang.String"/>
+	<field name="magazines_IssueDate" class="java.lang.String"/>
+	<field name="magazines_Category" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="97" backcolor="#34495E" uuid="d7d0a99a-0671-4394-b9c8-6a2a49a1cc47"/>
+				<staticText>
+					<reportElement style="Title" x="10" y="10" width="414" height="66" uuid="e1f5b21f-3cd4-4726-bb6f-bef80224520a"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Magazines-Report]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="10" y="76" width="144" height="20" forecolor="#FFFFFF" uuid="17f18a40-eabf-45b8-a1f4-c72235b8721d"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement x="459" y="0" width="96" height="96" uuid="aa12ceba-7158-4277-94b7-e0b6f77476e3"/>
+					<imageExpression><![CDATA["C:\\Users\\Dhanuka Perera\\Desktop\\ST-II-Project-Final\\Library Management  System - ST-II -Final\\src\\Reports\\LMS_100x100.png"]]></imageExpression>
+				</image>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="97" width="555" height="22" forecolor="#000000" backcolor="#E74C3C" uuid="32f66ab2-46e0-46a9-a57c-da2aa12200d6"/>
+				<staticText>
+					<reportElement style="SubTitle" x="380" y="0" width="170" height="22" forecolor="#ECF0F1" uuid="6a60acc4-aa6f-41b4-a792-c802e997d45b"/>
+					<textElement>
+						<font size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+					</textElement>
+					<text><![CDATA[| Library Management System]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="0" y="7" width="92" height="18" forecolor="#000000" backcolor="#F39C12" uuid="0037b959-e3d1-4291-a86b-15fde297e3cc"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MagazineId]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="92" y="7" width="76" height="18" forecolor="#000000" backcolor="#F39C12" uuid="d055bcbc-9b7a-4e4b-8149-e8429cb19d05"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="168" y="7" width="92" height="18" forecolor="#000000" backcolor="#F39C12" uuid="e17208b5-3d70-45a4-9272-ad8013c82f2c"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NumofCopies]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="260" y="7" width="108" height="18" forecolor="#000000" backcolor="#F39C12" uuid="3b380b2f-20e3-4ef5-b3b0-d90cec6622ca"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SubscriptionType]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="368" y="7" width="92" height="18" forecolor="#000000" backcolor="#F39C12" uuid="b47f4967-fe07-4d5a-ba0e-7feb940853ef"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IssueDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="460" y="7" width="92" height="18" forecolor="#000000" backcolor="#F39C12" uuid="3c4e400f-9bae-4057-81bc-607a1bb2ff06"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Category]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="8141a3e0-e418-4447-8ed5-726248b63d16"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="92" height="18" uuid="f5694058-2fcc-4045-8c32-03ce33c86346"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{magazines_MagazineId}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="92" y="0" width="76" height="18" uuid="4e4ab2ab-9e39-48f5-ae8b-80afd49cf93b"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{magazines_Name}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="168" y="0" width="92" height="18" uuid="9784a169-f940-4daa-9ea0-c1fc4267d952"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{magazines_NumofCopies}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="260" y="0" width="108" height="18" uuid="6bf9acfc-a683-4034-b271-92b0378197d3"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{magazines_SubscriptionType}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="368" y="0" width="92" height="18" uuid="da448df7-b3f9-4290-8635-8b276bf2ba40"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{magazines_IssueDate}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="460" y="0" width="92" height="18" uuid="6d4b1f20-c007-44a4-b063-3c4b89b3e0ff"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{magazines_Category}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="fda9464f-f9e4-40e3-9c09-628b8863d623"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="24" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="24" backcolor="#2C3E50" uuid="86813103-0f84-475d-98ba-f4a636dd1cb4"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="3c04d15c-c79f-4b5b-90b0-bbb231be2557"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="10" y="4" width="100" height="20" forecolor="#ECF0F1" uuid="d9159858-0cc6-45e4-a92f-afbe5f246f0b"/>
+					<text><![CDATA[SLIIT ST-II Project]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="a8da2062-d66c-4abf-982c-786d089e2f6d"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

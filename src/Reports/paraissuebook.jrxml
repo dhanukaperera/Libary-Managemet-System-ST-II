@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d28941ce-0087-46b4-8b81-b5476b328f9b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="paraissuememberid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     issuebook.`IssueBookId` AS issuebook_IssueBookId,
+     issuebook.`MemberId` AS issuebook_MemberId,
+     issuebook.`MemberName` AS issuebook_MemberName,
+     issuebook.`BookNo` AS issuebook_BookNo,
+     issuebook.`BookTitle` AS issuebook_BookTitle,
+     issuebook.`IssueDate` AS issuebook_IssueDate,
+     issuebook.`DueDate` AS issuebook_DueDate
+FROM
+     `issuebook` issuebook
+where 
+		MemberId = $P{paraissuememberid}]]>
+	</queryString>
+	<field name="issuebook_IssueBookId" class="java.lang.String"/>
+	<field name="issuebook_MemberId" class="java.lang.String"/>
+	<field name="issuebook_MemberName" class="java.lang.String"/>
+	<field name="issuebook_BookNo" class="java.lang.String"/>
+	<field name="issuebook_BookTitle" class="java.lang.String"/>
+	<field name="issuebook_IssueDate" class="java.lang.String"/>
+	<field name="issuebook_DueDate" class="java.lang.String"/>
+	<group name="issuebook_MemberId">
+		<groupExpression><![CDATA[$F{issuebook_MemberId}]]></groupExpression>
+		<groupHeader>
+			<band height="37">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="7" width="555" height="24" forecolor="#B89F7D" backcolor="#000000" uuid="03721dc5-c814-45e2-b539-f769804cca2f"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="SubTitle" isPrintRepeatedValues="false" x="2" y="0" width="479" height="24" forecolor="#FFFFFF" uuid="dca0cb70-1446-4e95-a7cf-c372f5ddccf4"/>
+						<textElement>
+							<font isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{issuebook_MemberId}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="555" height="97" backcolor="#34495E" uuid="45317e64-def7-44ea-abb6-bf269a0fe554"/>
+				<staticText>
+					<reportElement style="Title" x="10" y="10" width="370" height="66" uuid="7ff3d544-0611-4a9e-b6cb-0a43a0d8607b"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[IssueBook-Report]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="10" y="76" width="144" height="20" forecolor="#FFFFFF" uuid="feba7969-12b1-453b-b140-5aad47b47b3c"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement x="459" y="1" width="96" height="96" uuid="0ef21cb0-b783-4b8c-abc8-741b2531230a"/>
+					<imageExpression><![CDATA["C:\\Users\\Dhanuka Perera\\Desktop\\ST-II-Project-Final\\Library Management  System - ST-II -Final\\src\\Reports\\LMS_100x100.png"]]></imageExpression>
+				</image>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="2" y="97" width="555" height="22" forecolor="#000000" backcolor="#E74C3C" uuid="e6740aaf-c6ff-4daf-8dcf-7fbd76d8b838"/>
+				<staticText>
+					<reportElement style="SubTitle" x="380" y="0" width="170" height="22" forecolor="#ECF0F1" uuid="51f72da6-7e73-4a37-97dd-910edbc8defa"/>
+					<textElement>
+						<font size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+					</textElement>
+					<text><![CDATA[| Library Management System]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="0" y="7" width="92" height="18" forecolor="#000000" backcolor="#F39C12" uuid="104b223b-7c09-47ad-8699-7d6c9a4a47f8"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IssueBookId]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="92" y="7" width="92" height="18" forecolor="#000000" backcolor="#F39C12" uuid="fe8dc105-5297-46ba-bc7d-b33e30b99a8a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MemberName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="184" y="7" width="92" height="18" forecolor="#000000" backcolor="#F39C12" uuid="a77d6013-8a49-41fc-a3a6-cb0042844bf3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Book]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="276" y="7" width="92" height="18" forecolor="#000000" backcolor="#F39C12" uuid="a3c6361b-5146-4c34-8a73-d58b4c62ed5a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[BookTitle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="368" y="7" width="92" height="18" forecolor="#000000" backcolor="#F39C12" uuid="16e68862-fc34-47d6-aaa3-9c3906898f50"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IssueDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="460" y="7" width="92" height="18" forecolor="#000000" backcolor="#F39C12" uuid="6db290de-2728-48a0-bb68-9e2997f7c933"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DueDate]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="e984a539-f182-4bb1-a107-24f9aa08e16b"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="92" height="18" uuid="abf23860-fc6f-4e68-92dc-9dae45630a82"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{issuebook_IssueBookId}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="92" y="0" width="92" height="18" uuid="be71a0fe-7ce6-4b69-ad74-a136ccc10fda"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{issuebook_MemberName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="184" y="0" width="92" height="18" uuid="ff323900-6359-49ad-af8c-b44d6fcf370a"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{issuebook_BookNo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="276" y="0" width="92" height="18" uuid="3807d4e4-7d57-4fea-8275-a5327e9a9aac"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{issuebook_BookTitle}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="368" y="0" width="92" height="18" uuid="5f373dd7-6a35-4f97-9cc4-f03b37bc72be"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{issuebook_IssueDate}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="460" y="0" width="92" height="18" uuid="ba09a442-4ba3-431a-9e5d-e94f3ef25785"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{issuebook_DueDate}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="d6f13906-3583-4f7c-a4d2-ff04be727093"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="555" height="24" backcolor="#2C3E50" uuid="3eab0257-8a98-4517-b4db-6b257e983ca9"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="cf6ba28d-0aa5-489c-b65b-961a9a77d2a5"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="10" y="4" width="100" height="20" forecolor="#ECF0F1" uuid="3cc9a7a5-2d18-4ef7-a4f5-4af03b29c1fa"/>
+					<text><![CDATA[SLIIT ST-II Project]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="238fe704-9cb0-46f1-a8c2-c8fc2ebc2185"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

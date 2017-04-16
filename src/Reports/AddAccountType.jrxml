@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="05219ed3-190c-425f-94ff-3ce71265d4b6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     accounttype.`TypeId` AS accounttype_TypeId,
+     accounttype.`Type` AS accounttype_Type,
+     accounttype.`Books` AS accounttype_Books,
+     accounttype.`CD_DVD` AS accounttype_CD_DVD,
+     accounttype.`NewsPapers` AS accounttype_NewsPapers,
+     accounttype.`Magazines` AS accounttype_Magazines,
+     accounttype.`Members` AS accounttype_Members,
+     accounttype.`IssueBooks` AS accounttype_IssueBooks,
+     accounttype.`ReturnBooks` AS accounttype_ReturnBooks,
+     accounttype.`Staff` AS accounttype_Staff,
+     accounttype.`Categories` AS accounttype_Categories
+FROM
+     `accounttype` accounttype]]>
+	</queryString>
+	<field name="accounttype_TypeId" class="java.lang.String"/>
+	<field name="accounttype_Type" class="java.lang.String"/>
+	<field name="accounttype_Books" class="java.lang.String"/>
+	<field name="accounttype_CD_DVD" class="java.lang.String"/>
+	<field name="accounttype_NewsPapers" class="java.lang.String"/>
+	<field name="accounttype_Magazines" class="java.lang.String"/>
+	<field name="accounttype_Members" class="java.lang.String"/>
+	<field name="accounttype_IssueBooks" class="java.lang.String"/>
+	<field name="accounttype_ReturnBooks" class="java.lang.String"/>
+	<field name="accounttype_Staff" class="java.lang.String"/>
+	<field name="accounttype_Categories" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="97" backcolor="#34495E" uuid="87350a72-3b01-439c-89f2-36f13edcef82"/>
+				<staticText>
+					<reportElement style="Title" x="10" y="10" width="449" height="66" uuid="8ec70dde-23ad-471c-828d-8a74209db997"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Account Types]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="10" y="76" width="144" height="20" forecolor="#FFFFFF" uuid="6aa9abfb-1b57-406a-8320-d97e672cb5a0"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement x="459" y="1" width="96" height="96" uuid="bf7fd1e6-bb28-4639-b4e5-6757b4d6032e"/>
+					<imageExpression><![CDATA["C:\\Users\\Dhanuka Perera\\Desktop\\ST-II-Project-Final\\Library Management  System - ST-II -Final\\src\\Reports\\LMS_100x100.png"]]></imageExpression>
+				</image>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="97" width="555" height="22" forecolor="#000000" backcolor="#E74C3C" uuid="db93fafc-d9fe-4d44-bb8a-07cd279d7642"/>
+				<staticText>
+					<reportElement style="SubTitle" x="380" y="0" width="170" height="22" forecolor="#ECF0F1" uuid="d7534dac-d4c6-42d4-86bd-dedf5cebbf61"/>
+					<textElement>
+						<font size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+					</textElement>
+					<text><![CDATA[| Library Management System]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="0" y="7" width="50" height="18" forecolor="#000000" backcolor="#F39C12" uuid="30a5a2d1-7a2a-4951-84b8-0a84092d7a67"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TypeId]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="50" y="7" width="30" height="18" forecolor="#000000" backcolor="#F39C12" uuid="3dbef7a4-13d6-47d3-85f3-e34427e213ca"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="80" y="7" width="34" height="18" forecolor="#000000" backcolor="#F39C12" uuid="a2708ce1-4b63-47e2-a39b-e95e3b71bb2e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Books]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="114" y="7" width="50" height="18" forecolor="#000000" backcolor="#F39C12" uuid="ef637b97-af65-4aee-a14d-aa91df23b759"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CDDVD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="164" y="7" width="73" height="18" forecolor="#000000" backcolor="#F39C12" uuid="6bac9405-d56c-4fbf-8b0c-7fb373281d4f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NewsPaper]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="237" y="7" width="63" height="18" forecolor="#000000" backcolor="#F39C12" uuid="0cede63f-fdb6-42d7-b87a-741add5692b3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Magazine]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="300" y="7" width="50" height="18" forecolor="#000000" backcolor="#F39C12" uuid="75d3c10b-2e47-454a-966f-2ab1590a6f63"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Members]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="350" y="7" width="50" height="18" forecolor="#000000" backcolor="#F39C12" uuid="bcfe74ea-0fe2-4947-b927-a0c7dbfb2527"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IssueBook]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="400" y="7" width="70" height="18" forecolor="#000000" backcolor="#F39C12" uuid="e9a9a9b8-2f97-4645-b7e6-3a0b38ee7394"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ReturnBook]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="470" y="7" width="30" height="18" forecolor="#000000" backcolor="#F39C12" uuid="fb82b69c-70f5-4057-9879-ad9eb9d72ea5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Staff]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="500" y="7" width="50" height="18" forecolor="#000000" backcolor="#F39C12" uuid="a344707e-e193-4ee4-92b1-8f496ed7b1d8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Category]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="6e5a52f0-1ee7-4d46-b37d-b937cf725a97"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="50" height="18" uuid="bc505440-f89d-4c4b-9b42-f964e1140273"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{accounttype_TypeId}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="50" y="0" width="30" height="18" uuid="63b7efdb-e06d-4135-8b9f-d6df2274c751"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{accounttype_Type}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="80" y="0" width="34" height="18" uuid="658995e1-6776-4d68-961a-a11fa28feaa7"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{accounttype_Books}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="114" y="0" width="50" height="18" uuid="485f14ee-c0ca-42bf-98eb-6cc70e07f154"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{accounttype_CD_DVD}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="164" y="0" width="73" height="18" uuid="61a63bb2-c939-470f-a64d-3b9ddcca3f58"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{accounttype_NewsPapers}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="237" y="0" width="63" height="18" uuid="dc755906-2ef4-4396-ba58-69fa5f7daf9a"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{accounttype_Magazines}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="300" y="0" width="50" height="18" uuid="f5d87e2c-67bd-4b08-ada5-8274ca271e39"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{accounttype_Members}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="350" y="0" width="50" height="18" uuid="261ccabf-331e-4ee5-bd15-4b556183cd5c"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{accounttype_IssueBooks}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="400" y="0" width="70" height="18" uuid="675b4386-be49-4c96-8ab0-26c5ba149062"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{accounttype_ReturnBooks}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="470" y="0" width="30" height="18" uuid="b0d0eb2b-0bec-4dd0-8774-9ef6216e67b6"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{accounttype_Staff}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="500" y="0" width="50" height="18" uuid="b1221f1e-59c8-43c0-a9ae-ad73309fcfdd"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{accounttype_Categories}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="bd9c7cff-59bb-4668-ada3-f9bd2c60e4ec"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" backcolor="#2C3E50" uuid="e4be8aae-0b7f-4de7-9d5e-f9d41f9eca10"/>
+				<staticText>
+					<reportElement x="10" y="4" width="100" height="20" forecolor="#ECF0F1" uuid="66bdc934-dfa0-4277-b9de-7fb64e968b36"/>
+					<text><![CDATA[SLIIT ST-II Project]]></text>
+				</staticText>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="500" y="2" width="40" height="20" forecolor="#FFFFFF" uuid="edf056db-d00a-4d5d-94e2-5878a88aac43"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="420" y="2" width="80" height="20" forecolor="#FFFFFF" uuid="9fc8818c-210d-47ab-943b-a23b5703ae9f"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

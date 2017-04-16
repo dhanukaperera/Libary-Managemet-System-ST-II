@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8a572b44-4e06-44ec-85fc-5a90c8050b13">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="paraissuememberid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     returnbook.`ReturnBookID` AS returnbook_ReturnBookID,
+     returnbook.`BookID` AS returnbook_BookID,
+     returnbook.`BookTitle` AS returnbook_BookTitle,
+     returnbook.`MemberID` AS returnbook_MemberID,
+     returnbook.`MemberName` AS returnbook_MemberName,
+     returnbook.`IssueDate` AS returnbook_IssueDate,
+     returnbook.`DueDate` AS returnbook_DueDate,
+     returnbook.`Fine` AS returnbook_Fine
+FROM
+     `returnbook` returnbook
+where 
+		MemberId=$P{paraissuememberid}]]>
+	</queryString>
+	<field name="returnbook_ReturnBookID" class="java.lang.String"/>
+	<field name="returnbook_BookID" class="java.lang.String"/>
+	<field name="returnbook_BookTitle" class="java.lang.String"/>
+	<field name="returnbook_MemberID" class="java.lang.String"/>
+	<field name="returnbook_MemberName" class="java.lang.String"/>
+	<field name="returnbook_IssueDate" class="java.lang.String"/>
+	<field name="returnbook_DueDate" class="java.lang.String"/>
+	<field name="returnbook_Fine" class="java.lang.Float"/>
+	<group name="returnbook_MemberID">
+		<groupExpression><![CDATA[$F{returnbook_MemberID}]]></groupExpression>
+		<groupHeader>
+			<band height="37">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="7" width="555" height="24" forecolor="#B89F7D" backcolor="#000000" uuid="a56380ed-0dae-4f90-bde8-69b332f796d3"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="SubTitle" isPrintRepeatedValues="false" x="2" y="0" width="479" height="24" forecolor="#FFFFFF" uuid="281df74c-b560-431d-a5fd-a776a6f70789"/>
+						<textElement>
+							<font isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{returnbook_MemberID}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="555" height="97" backcolor="#34495E" uuid="5549bdc6-23d9-410d-b4bd-890495a92ef3"/>
+				<staticText>
+					<reportElement style="Title" x="10" y="10" width="409" height="66" uuid="41a3033f-2816-422f-b761-68217dc89e9c"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[ReturnBook-Report]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="10" y="76" width="144" height="20" forecolor="#FFFFFF" uuid="18aff6da-1c26-48c4-8674-e24273bc171a"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement x="459" y="0" width="96" height="96" uuid="0a61e621-3abb-4783-b0f5-3c15ecc7a6f9"/>
+					<imageExpression><![CDATA["C:\\Users\\Dhanuka Perera\\Desktop\\ST-II-Project-Final\\Library Management  System - ST-II -Final\\src\\Reports\\LMS_100x100.png"]]></imageExpression>
+				</image>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="2" y="97" width="555" height="22" forecolor="#000000" backcolor="#E74C3C" uuid="504c775b-efb0-4564-ae2a-e3cd678b11cb"/>
+				<staticText>
+					<reportElement style="SubTitle" x="380" y="0" width="170" height="22" forecolor="#ECF0F1" uuid="cf8428d8-771d-4a8d-b108-6efa32f6285e"/>
+					<textElement>
+						<font size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+					</textElement>
+					<text><![CDATA[| Library Management System]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="0" y="7" width="79" height="18" forecolor="#000000" backcolor="#F39C12" uuid="6822ae43-b2b5-4042-8098-705a3cb41468"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[returnbook_ReturnBookID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="79" y="7" width="79" height="18" forecolor="#000000" backcolor="#F39C12" uuid="36624dc4-4f4e-436b-a1f9-cf33a02703ae"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[returnbook_BookID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="158" y="7" width="79" height="18" forecolor="#000000" backcolor="#F39C12" uuid="eb3c332f-401a-498c-89be-e1450fec2715"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[returnbook_BookTitle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="237" y="7" width="79" height="18" forecolor="#000000" backcolor="#F39C12" uuid="fbd01ab2-b2a4-4abc-8bb2-f03850b39ffd"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[returnbook_MemberName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="316" y="7" width="79" height="18" forecolor="#000000" backcolor="#F39C12" uuid="837af3c8-2786-4b02-9e9a-67e0801a658e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[returnbook_IssueDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="395" y="7" width="79" height="18" forecolor="#000000" backcolor="#F39C12" uuid="d9c81919-1e1d-4188-951c-ec003acb38f3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[returnbook_DueDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="474" y="7" width="79" height="18" forecolor="#000000" backcolor="#F39C12" uuid="784e6160-6b05-43df-b5f5-d1aac228805a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[returnbook_Fine]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="cf51fd35-50ea-4507-8b74-014e24dc2575"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="79" height="18" uuid="e812b550-94dc-48fe-9cd5-7119dca482f7"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{returnbook_ReturnBookID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="79" y="0" width="79" height="18" uuid="1f69d88d-2e32-484f-8226-add9ac8593bd"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{returnbook_BookID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="158" y="0" width="79" height="18" uuid="c97299cc-573f-4ac6-84bc-9d572bfa5813"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{returnbook_BookTitle}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="237" y="0" width="79" height="18" uuid="88d97a06-6da6-4566-8bed-eff289e80a2e"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{returnbook_MemberName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="316" y="0" width="79" height="18" uuid="2d404996-d278-4fa0-bf9d-3a642d8e6fb9"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{returnbook_IssueDate}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="395" y="0" width="79" height="18" uuid="a4bf2a5a-e0ac-431c-9691-8d5759fbcdd1"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{returnbook_DueDate}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="474" y="0" width="79" height="18" uuid="781d2c0a-51a5-4e66-b4f4-7889c148395c"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{returnbook_Fine}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="3940de6e-2c62-4789-b90c-9f3ae10be092"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="1" width="555" height="24" backcolor="#2C3E50" uuid="856e0187-f06c-4447-be0b-121be296c975"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="c5c183a3-6b70-4aa3-a018-d79c7884e3dc"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="10" y="4" width="100" height="20" forecolor="#ECF0F1" uuid="1f939b99-e1db-4321-8892-70c25116abaf"/>
+					<text><![CDATA[SLIIT ST-II Project]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="768c0c03-5132-4d52-aca7-84fd640abba1"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

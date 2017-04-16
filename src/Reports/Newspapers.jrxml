@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f3c52d97-60f8-4e16-a31a-447deb022edd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     newspapers.`PaperId` AS newspapers_PaperId,
+     newspapers.`Name` AS newspapers_Name,
+     newspapers.`NumberofCopies` AS newspapers_NumberofCopies,
+     newspapers.`SubscriptionType` AS newspapers_SubscriptionType,
+     newspapers.`IssueDate` AS newspapers_IssueDate,
+     newspapers.`Category` AS newspapers_Category
+FROM
+     `newspapers` newspapers]]>
+	</queryString>
+	<field name="newspapers_PaperId" class="java.lang.String"/>
+	<field name="newspapers_Name" class="java.lang.String"/>
+	<field name="newspapers_NumberofCopies" class="java.lang.Integer"/>
+	<field name="newspapers_SubscriptionType" class="java.lang.String"/>
+	<field name="newspapers_IssueDate" class="java.lang.String"/>
+	<field name="newspapers_Category" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="555" height="97" backcolor="#34495E" uuid="71488746-3897-4a63-9215-43fe8877c94b"/>
+				<staticText>
+					<reportElement style="Title" x="10" y="10" width="414" height="66" uuid="2e23f695-cd90-4abd-af31-bf71efeb4bb6"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[NewsPapers-Report]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="10" y="76" width="144" height="20" forecolor="#FFFFFF" uuid="db018123-a754-4f4e-a111-085aef9d57a6"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement x="458" y="0" width="96" height="96" uuid="ec54db89-a44d-4026-b0f9-1d97140a410f"/>
+					<imageExpression><![CDATA["D:\\IT\\ST-II library management system project\\Library Management  System - ST-II\\src\\Reports\\LMS_100x100.png"]]></imageExpression>
+				</image>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="2" y="97" width="555" height="22" forecolor="#000000" backcolor="#E74C3C" uuid="b26def6e-7968-462b-b175-cd63b1024d3e"/>
+				<staticText>
+					<reportElement style="SubTitle" x="380" y="0" width="170" height="22" forecolor="#ECF0F1" uuid="118bb99e-7259-4f12-9a8c-70fb891a187b"/>
+					<textElement>
+						<font size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+					</textElement>
+					<text><![CDATA[| Library Management System]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="0" y="7" width="78" height="18" forecolor="#000000" backcolor="#F39C12" uuid="fb95b120-54e4-473c-9f64-91ac42dc0eeb"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PaperId]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="78" y="7" width="64" height="18" forecolor="#000000" backcolor="#F39C12" uuid="3154ba4f-b6dd-445f-8028-8b13fe3f6423"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="142" y="7" width="104" height="18" forecolor="#000000" backcolor="#F39C12" uuid="42620014-9942-4fc1-a23e-53dd5354cf98"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NumberofCopies]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="246" y="7" width="108" height="18" forecolor="#000000" backcolor="#F39C12" uuid="6db85d2a-7a13-4987-b371-a19a21032d11"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SubscriptionType]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="354" y="7" width="106" height="18" forecolor="#000000" backcolor="#F39C12" uuid="b70bf005-de3a-43e7-a19e-05c64a5ed515"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IssueDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="460" y="7" width="92" height="18" forecolor="#000000" backcolor="#F39C12" uuid="cbe9b7a3-92c0-4a85-a5ad-ca48d4ef2b87"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Category]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="ebff4815-8e2c-4055-9812-6c72761c254c"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="78" height="18" uuid="1247401d-f4b5-44b2-b8f6-a83d9ccf04b3"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{newspapers_PaperId}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="78" y="0" width="64" height="18" uuid="bbd3dd32-51d1-45da-af75-99b4b00e0ab5"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{newspapers_Name}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="142" y="0" width="104" height="18" uuid="300b3698-0b16-4b9c-82c7-ea123e07c9ef"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{newspapers_NumberofCopies}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="246" y="0" width="108" height="18" uuid="daf04a6c-4d36-4b74-a1bd-0759d3307d60"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{newspapers_SubscriptionType}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="354" y="0" width="95" height="18" uuid="974db80d-3b18-44eb-b8d1-d08f46ae9bde"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{newspapers_IssueDate}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="449" y="0" width="103" height="18" uuid="5a5c6cd6-4687-467f-a331-b653ae2bffeb"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{newspapers_Category}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="ca396d64-b7a5-4e7c-be89-31e08392721a"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="24" backcolor="#2C3E50" uuid="1220fdf7-0a28-4436-a5b7-ef5b463b8db4"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="2248b4ce-67bd-4b1d-ad8d-badccc66bb1b"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="10" y="4" width="100" height="20" forecolor="#ECF0F1" uuid="74950ed6-adfd-4cdb-bf83-155de1faea1a"/>
+					<text><![CDATA[SLIIT ST-II Project]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="f03d1deb-866b-43de-833b-c185a6809ef0"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
